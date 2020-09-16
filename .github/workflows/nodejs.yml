@@ -1,11 +1,14 @@
+
+# Name of workflow
 name: Node CI
 
+# Trigger the workflow on push or pull request
 on:
   - push
   - pull_request
 
-  jobs:
-    build:
+jobs:
+  build:
 
     runs-on: ubuntu-latest
 
