@@ -3,4 +3,4 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/ee38fecaa690ca34444e/maintainability)](https://codeclimate.com/github/sotruy/backend-project-lvl1/maintainability)
 
-![Brain games CI](https://github.com/sotruy/backend-project-lvl1/workflows/brain-games%20CI/badge.svg)(https://github.com/sotruy/backend-project-lvl1/actions)
+[![Brain games CI](https://github.com/sotruy/backend-project-lvl1/workflows/brain-games%20CI/badge.svg)](https://github.com/sotruy/backend-project-lvl1/actions)
