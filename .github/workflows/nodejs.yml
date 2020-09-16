@@ -1,5 +1,5 @@
 # Name of workflow
-name: Node CI
+name: brain-games CI
 
 # Trigger the workflow on push or pull request
 on:
@@ -9,6 +9,7 @@ on:
 jobs:
   build:
 
+    # The type of machine to run the job on
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,15 +18,13 @@ jobs:
         node-version: [14.x]
 
     steps:
-        # Check-out repository under GitHub workspace
+      # Check-out repository under GitHub workspace
         # https://github.com/actions/checkout
       - uses: actions/checkout@v2
-      
-      # Step's name
+        # Step's name
       - name: Use Node.js ${{ matrix.node-version }}
         # Configures the node version used on GitHub-hosted runners
         # https://github.com/actions/setup-node
-
         uses: actions/setup-node@v1
         # The Node.js version to configure
         with:
@@ -35,10 +34,7 @@ jobs:
         # Install and build project
         run: 
           make install
-
-        env:
-          CI: true
-
+        
       - name: Run linter
         # Run Linter
         run: 
