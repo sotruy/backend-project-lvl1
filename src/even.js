@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync';
 import getNumber from './numberGenerator.js';
 
 const askQuestion = () => {
-  const randomNumber = getNumber();
+  const randomNumber = getNumber(0, 1000);
   console.log(`Question: ${randomNumber}`);
   const answer = readlineSync.question('Your answer: ');
   const isEven = randomNumber % 2 === 0;
@@ -19,6 +19,7 @@ const askQuestion = () => {
   return true;
 };
 
+// eslint-disable-next-line consistent-return
 const brainEven = () => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
