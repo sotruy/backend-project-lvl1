@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import getEven from '../src/even.js';
+import { evenQuestion, gameTask } from '../src/games/even.js';
 
-getEven();
+import brainAPI from '../src/index.js';
+
+brainAPI(evenQuestion, gameTask);
