@@ -1,6 +1,6 @@
-import readlineSync from 'readline-sync';
-
 import genNumber from '../numberGenerator.js';
+
+import gameEngine from '../index.js';
 
 export const gameTask = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -23,18 +23,14 @@ const trialDivision = (num) => { // trial division algorithm
   return iter(num, 2);
 };
 
-export const primeQuestion = () => {
-  const randomNumber = genNumber(0, 1000);
-  console.log(`Question: ${randomNumber}`);
-  const answer = readlineSync.question('Your answer: ');
-  const isPrime = trialDivision(randomNumber);
-  if (isPrime && answer !== 'yes') {
-    console.log(`"${answer}" is wrong answer ;(. Correct answer was "yes".`);
-    return false;
-  } if (!isPrime && answer !== 'no') {
-    console.log(`"${answer}" is wrong answer ;(. Correct answer was "no".`);
-    return false;
-  }
-  console.log('Correct!');
-  return true;
+const randomNumber = () => genNumber(0, 1000);
+
+export const primeGame = (num) => {
+  const isPrime = trialDivision(num);
+  const answer = isPrime ? 'yes' : 'no';
+  return answer;
 };
+
+const startGame = () => gameEngine(primeGame, gameTask, randomNumber);
+
+export default startGame;

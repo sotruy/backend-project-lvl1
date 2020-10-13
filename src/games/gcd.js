@@ -1,6 +1,6 @@
-import readlineSync from 'readline-sync';
-
 import genNumber from '../numberGenerator.js';
+
+import gameEngine from '../index.js';
 
 export const gameTask = 'Find the greatest common divisor of given numbers.';
 
@@ -36,16 +36,20 @@ const calculateGCD = (firstNum, secondNum) => {
   return iter(firstNum, secondNum, 1);
 };
 
-export const gcdQuestion = () => {
+const question = () => { // генерация чисел для вопроса
   const firstNum = genNumber(0, 100);
   const secondNum = genNumber(0, 100);
-  console.log(`Question: ${firstNum} ${secondNum}`);
-  const result = calculateGCD(firstNum, secondNum);
-  const answer = readlineSync.question('Your answer: ');
-  if (Number(answer) !== result) {
-    console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-    return false;
-  }
-  console.log('Correct!');
-  return true;
+  return `${firstNum} ${secondNum}`;
 };
+
+export const gcdGame = (questionData) => {
+  const [firstNum, secondNum] = questionData.split(' ');// определяем числа из полученной строки
+
+  const answer = calculateGCD(Number(firstNum), Number(secondNum));
+
+  return String(answer);
+};
+
+const startGame = () => gameEngine(gcdGame, gameTask, question);
+
+export default startGame;

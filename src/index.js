@@ -2,19 +2,27 @@ import readlineSync from 'readline-sync';
 
 const numberOfRounds = 3;
 
-const brainAPI = (game, gameTask) => {
+const gameEngine = (game, gameTask, question) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hi, ${userName}!\n${gameTask}`);// вывод имени и игрового задания
+
   for (let i = 0; i < numberOfRounds; i += 1) {
-    const isCorrect = game();
-    if (isCorrect === false) {
+    const getQuestion = question();
+    console.log(`Question: ${getQuestion}`);
+    const playerAnswer = readlineSync.question('Your answer: ');
+    const correctAnswer = game(getQuestion);
+    const isCorrect = (correctAnswer === playerAnswer);
+    if (!isCorrect) {
+      console.log(`"${playerAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
       console.log(`Let's try again, ${userName}!`);
-      i = numberOfRounds;// прерывание цикла
       return;
+    }
+    if (isCorrect) {
+      console.log('Correct!');
     }
   }
   console.log(`Congratulations, ${userName}!`);
 };
 
-export default brainAPI;
+export default gameEngine;
