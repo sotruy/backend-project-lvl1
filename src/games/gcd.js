@@ -42,7 +42,7 @@ const question = () => { // генерация чисел для вопроса
   return `${firstNum} ${secondNum}`;
 };
 
-export const gcdGame = (questionData) => {
+export const gcdGame = (questionData) => { // функция определения правильного НОД
   const [firstNum, secondNum] = questionData.split(' ');// определяем числа из полученной строки
 
   const answer = calculateGCD(Number(firstNum), Number(secondNum));

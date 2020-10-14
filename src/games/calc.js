@@ -4,7 +4,7 @@ import gameEngine from '../index.js';
 
 const gameTask = 'What is the result of the expression?';
 
-const question = () => {
+const question = () => { // функция генерации мат. выражения
   const firstNum = genNumber(0, 30);
   const secondNum = genNumber(0, 30);
   const operatorIndex = genNumber(0, 2);
@@ -13,7 +13,7 @@ const question = () => {
   return `${firstNum} ${randomOperator} ${secondNum}`;
 };
 
-const calcGame = (questionData) => {
+const calcGame = (questionData) => { // функция получения правильного ответа из выражения
   const [firstNum, operator, secondNum] = questionData.split(' ');// определяем числа и оператор из полученной строки
 
   const calculate = (num1, operation, num2) => {
