@@ -1,20 +1,23 @@
 import readlineSync from 'readline-sync';
 
+import { car, cdr } from '@hexlet/pairs';
+
 const numberOfRounds = 3;
 
-const gameEngine = (game, gameTask, getQuestion) => {
+const gameEngine = (game, gameTask) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hi, ${userName}!\n${gameTask}`);// вывод имени и игрового задания
+  console.log(`Hi, ${userName}!\n${gameTask}`);
 
   for (let i = 0; i < numberOfRounds; i += 1) {
-    const question = getQuestion(); // генерация вопроса
+    const gameData = game();
+    const gameAnswer = car(gameData);
+    const question = cdr(gameData);
     console.log(`Question: ${question}`);
     const playerAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = game(question); // получения правильного ответа для сгенерир-го вопроса
-    const isCorrect = (correctAnswer === playerAnswer);
+    const isCorrect = (gameAnswer === playerAnswer);
     if (!isCorrect) {
-      console.log(`"${playerAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
+      console.log(`"${playerAnswer}" is wrong answer ;(. Correct answer was "${gameAnswer}".`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }

@@ -1,3 +1,5 @@
+import { cons } from '@hexlet/pairs';
+
 import genNumber from '../numberGenerator.js';
 
 import gameEngine from '../index.js';
@@ -23,14 +25,14 @@ const trialDivision = (num) => { // trial division algorithm
   return iter(num, 2);
 };
 
-const randomNumber = () => genNumber(0, 1000);
-
-export const primeGame = (num) => {
-  const isPrime = trialDivision(num);
+export const primeGame = () => {
+  const randomNumber = genNumber(0, 1000);
+  const isPrime = trialDivision(randomNumber);
   const answer = isPrime ? 'yes' : 'no';
-  return answer;
+  const pair = cons(answer, randomNumber);
+  return pair;
 };
 
-const startGame = () => gameEngine(primeGame, gameTask, randomNumber);
+const startGame = () => gameEngine(primeGame, gameTask);
 
 export default startGame;

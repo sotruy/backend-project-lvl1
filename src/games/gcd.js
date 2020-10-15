@@ -1,3 +1,5 @@
+import { cons } from '@hexlet/pairs';
+
 import genNumber from '../numberGenerator.js';
 
 import gameEngine from '../index.js';
@@ -36,20 +38,17 @@ const calculateGCD = (firstNum, secondNum) => {
   return iter(firstNum, secondNum, 1);
 };
 
-const question = () => { // генерация чисел для вопроса
+const gcdGame = () => {
   const firstNum = genNumber(0, 100);
   const secondNum = genNumber(0, 100);
-  return `${firstNum} ${secondNum}`;
-};
-
-export const gcdGame = (questionData) => { // функция определения правильного НОД
-  const [firstNum, secondNum] = questionData.split(' ');// определяем числа из полученной строки
+  const question = `${firstNum} ${secondNum}`;
 
   const answer = calculateGCD(Number(firstNum), Number(secondNum));
 
-  return String(answer);
+  const pair = cons(String(answer), question);
+  return pair;
 };
 
-const startGame = () => gameEngine(gcdGame, gameTask, question);
+const startGame = () => gameEngine(gcdGame, gameTask);
 
 export default startGame;
