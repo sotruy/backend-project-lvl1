@@ -1,12 +1,10 @@
 import { cons } from '@hexlet/pairs';
-
 import genNumber from '../numberGenerator.js';
-
 import gameEngine from '../index.js';
 
 export const gameTask = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const trialDivision = (num) => { // trial division algorithm
+const isPrime = (num) => { // trial division algorithm
   if (num % 2 === 0 && num !== 2) {
     return false;
   }
@@ -14,25 +12,24 @@ const trialDivision = (num) => { // trial division algorithm
     return false;
   }
   const iter = (number, i) => {
-    if (i === number) {
+    if (i > Math.sqrt(number)) {
       return true;
     }
     if (number % i === 0) {
       return false;
     }
-    return iter(number, i + 1);
+    return iter(number, i + 2);
   };
-  return iter(num, 2);
+  return iter(num, 3);
 };
 
-export const primeGame = () => {
-  const randomNumber = genNumber(0, 1000);
-  const isPrime = trialDivision(randomNumber);
-  const answer = isPrime ? 'yes' : 'no';
-  const pair = cons(answer, randomNumber);
+export const getQandA = () => {
+  const question = genNumber(0, 1000);
+  const answer = isPrime(question) ? 'yes' : 'no';
+  const pair = cons(answer, question);
   return pair;
 };
 
-const startGame = () => gameEngine(primeGame, gameTask);
+const startGame = () => gameEngine(getQandA, gameTask);
 
 export default startGame;

@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-
 import { car, cdr } from '@hexlet/pairs';
 
 const numberOfRounds = 3;
@@ -15,15 +14,12 @@ const gameEngine = (game, gameTask) => {
     const question = cdr(gameData);
     console.log(`Question: ${question}`);
     const playerAnswer = readlineSync.question('Your answer: ');
-    const isCorrect = (gameAnswer === playerAnswer);
-    if (!isCorrect) {
+    if (gameAnswer !== playerAnswer) {
       console.log(`"${playerAnswer}" is wrong answer ;(. Correct answer was "${gameAnswer}".`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }
-    if (isCorrect) {
-      console.log('Correct!');
-    }
+    console.log('Correct!');
   }
   console.log(`Congratulations, ${userName}!`);
 };

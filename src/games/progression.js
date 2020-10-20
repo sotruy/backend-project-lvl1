@@ -1,34 +1,35 @@
 import { cons } from '@hexlet/pairs';
-
 import genNumber from '../numberGenerator.js';
-
 import gameEngine from '../index.js';
 
 export const gameTask = 'What number is missing in the progression?';
 
-const genProgression = (progLength, firstNum, progDiff) => { // generate arithmetic progression
-  const progArray = [firstNum];
-  const currentNum = firstNum;
-  if (progArray.length === progLength + 1) {
-    return [];
-  }
-  return progArray.concat(genProgression(progLength - 1, currentNum + progDiff, progDiff));
+const getProgWithHiddenNum = (firstNum, progLength, progDiff, hiddenIndex) => {
+  const iter = (counter, acc) => {
+    if (counter === progLength) {
+      return acc;
+    }
+    if (counter === hiddenIndex) {
+      return iter(counter + 1, `${acc}.. `);
+    }
+    return iter(counter + 1, `${acc}${firstNum + counter * progDiff} `);
+  };
+
+  return iter(0, '');
 };
 
-export const progressionGame = () => {
+const getQandA = () => {
   const firstNum = genNumber(0, 100);
   const progLength = genNumber(5, 10);
   const progDiff = genNumber(1, 5);
-  const progression = genProgression(progLength, firstNum, progDiff);
   const hiddenIndex = genNumber(0, progLength - 1);
-  const answer = progression[hiddenIndex];
-  progression[hiddenIndex] = '..';
-  const question = `${progression.join(' ')}`;
 
+  const answer = firstNum + hiddenIndex * progDiff;
+  const question = getProgWithHiddenNum(firstNum, progLength, progDiff, hiddenIndex);
   const pair = cons(String(answer), question);
   return pair;
 };
 
-const startGame = () => gameEngine(progressionGame, gameTask);
+const startGame = () => gameEngine(getQandA, gameTask);
 
 export default startGame;
