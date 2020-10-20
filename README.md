@@ -1,9 +1,31 @@
 
-# backend-project-lvl1
+# Brain-games: hexlet-project-lvl1
+____
+
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/ee38fecaa690ca34444e/maintainability)](https://codeclimate.com/github/sotruy/backend-project-lvl1/maintainability)
 
 [![Brain games CI](https://github.com/sotruy/backend-project-lvl1/workflows/brain-games%20CI/badge.svg)](https://github.com/sotruy/backend-project-lvl1/actions)
+____
+
+## Install
+
+```bash
+sudo npm install -g braingames_project1
+```
+____
+
+## Usage
+
+For run simple game use command from list below:
+
+```
+$ brain-even
+$ brain-calc
+S brain-gcd
+$ brain-prime
+$ brain-progression
+```
 
 Brain-even asciinema
 [![asciicast](https://asciinema.org/a/bQvFWBtr17LF3fIv3k3fTwVH9.svg)](https://asciinema.org/a/bQvFWBtr17LF3fIv3k3fTwVH9)
