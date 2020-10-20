@@ -15,7 +15,7 @@ ____
 ## Install
 
 ```bash
-sudo npm install -g braingames_project1
+npm install -g @sotruy/braingames_project1
 ```
 ____
 
