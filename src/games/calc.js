@@ -5,14 +5,16 @@ import gameEngine from '../index.js';
 const gameTask = 'What is the result of the expression?';
 
 const calculate = (num1, operator, num2) => {
-  if (operator === '*') {
-    return (num1 * num2);
-  } if (operator === '-') {
-    return (num1 - num2);
-  } if (operator === '+') {
-    return (num1 + num2);
+  switch (operator) {
+    case '*':
+      return (num1 * num2);
+    case '-':
+      return (num1 - num2);
+    case '+':
+      return (num1 + num2);
+    default:
+      return (num1 + num2);
   }
-  return null;
 };
 
 const getQandA = () => {

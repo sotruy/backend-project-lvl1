@@ -4,7 +4,7 @@ import gameEngine from '../index.js';
 
 export const gameTask = 'What number is missing in the progression?';
 
-const getProgWithHiddenNum = (firstNum, progLength, progDiff, hiddenIndex) => {
+const getQuestion = (firstNum, progLength, progDiff, hiddenIndex) => {
   const iter = (counter, acc) => {
     if (counter === progLength) {
       return acc;
@@ -25,7 +25,7 @@ const getQandA = () => {
   const hiddenIndex = genNumber(0, progLength - 1);
 
   const answer = firstNum + hiddenIndex * progDiff;
-  const question = getProgWithHiddenNum(firstNum, progLength, progDiff, hiddenIndex);
+  const question = getQuestion(firstNum, progLength, progDiff, hiddenIndex);
   const pair = cons(String(answer), question);
   return pair;
 };

@@ -2,7 +2,7 @@ import { cons } from '@hexlet/pairs';
 import genNumber from '../numberGenerator.js';
 import gameEngine from '../index.js';
 
-export const gameTask = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameTask = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => { // trial division algorithm
   if (num % 2 === 0 && num !== 2) {
