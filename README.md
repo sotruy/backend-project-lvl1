@@ -21,15 +21,14 @@ ____
 
 ## Usage
 
-For run simple game use one of the commands from list below:
+Run `$ brain-games` command and you will see the list of next games:
 
-```
-$ brain-even
-$ brain-calc
-S brain-gcd
-$ brain-prime
-$ brain-progression
-```
+1. Brain-even
+1. Brain-calc
+1. Brain-gcd
+1. Brain-prime
+1. Brain-progression
+
 ____
 Brain-even game example
 [![asciicast](https://asciinema.org/a/bQvFWBtr17LF3fIv3k3fTwVH9.svg)](https://asciinema.org/a/bQvFWBtr17LF3fIv3k3fTwVH9)

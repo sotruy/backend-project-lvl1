@@ -4,7 +4,6 @@ import { car, cdr } from '@hexlet/pairs';
 const numberOfRounds = 3;
 
 const gameEngine = (game, gameTask) => {
-  console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hi, ${userName}!\n${gameTask}`);
 
