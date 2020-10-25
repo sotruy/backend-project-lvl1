@@ -8,7 +8,7 @@ import startProgressionGame from './games/progression.js';
 const askGame = () => {
   console.log('Welcome to the Brain Games!\nHere is the list of ours games:');
   const games = ['Brain-even', 'Brain-calc', 'Brain-gcd', 'Brain-prime', 'Brain-progression'];
-  const index = readlineSync.keyInSelect(games, 'Choose the game you want to play (press 1..5 key)\n', {
+  const index = readlineSync.keyInSelect(games, 'Choose the game you want to play (press 1..5 key)', {
     guide: false,
     hideEchoBack: true,
     mask: ' ',
